@@ -60,6 +60,7 @@ const SignIn = () => {
         }
       })
       .catch((error) => {
+        console.log(error);
         return toast({
           title: "Error",
           description: `${error.response.data.message}`,

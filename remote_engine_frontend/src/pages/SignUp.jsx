@@ -10,9 +10,10 @@ import {
 } from "@chakra-ui/react";
 import { RiMailFill, RiLockPasswordFill } from "react-icons/ri";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const toast = useToast();
   const [formData, setFormData] = useState({
     email: "",
@@ -41,7 +42,7 @@ const SignUp = () => {
           email: "",
           password: "",
         });
-        if (response?.data.token) {
+        if (response?.data.user.email) {
           toast({
             title: "Account Created",
             description: `Welcome, ${response?.data?.user.email}!`,
@@ -50,6 +51,9 @@ const SignUp = () => {
             isClosable: true,
             position: "top",
           });
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         }
       })
       .catch((error) => {
