@@ -2,10 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const connection = require('./config/db');
-const signInRouter = require('./routes/signin.route');
-const signUpRouter = require('./routes/signup.route');
+const signInRouter = require("./routes/signin.route");
+const signUpRouter = require("./routes/signup.route");
 const cors = require("cors");
 const skillRouter = require('./routes/skill.route');
+const developerOnboardingRouter = require('./routes/developerOnboarding.route');
 const app = express();
 
 
@@ -19,6 +20,7 @@ app.use(cors())
 app.use("/developer/signin", signInRouter)
 app.use("/developer/signup", signUpRouter)
 app.use("/skills", skillRouter)
+app.use("/onboarding", developerOnboardingRouter)
 
 // Start the server
 const PORT = process.env.PORT || 3000;
