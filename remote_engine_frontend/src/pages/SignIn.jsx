@@ -29,13 +29,9 @@ const SignIn = () => {
   };
 
   const handleLogin = () => {
-    console.log("clicked");
-
     axios
       .post("http://localhost:3001/developer/signin", formData)
       .then((response) => {
-        console.log(response);
-
         setFormData({
           email: "",
           password: "",
@@ -59,7 +55,6 @@ const SignIn = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
         return toast({
           title: "Error",
           description: `${error.response.data.message}`,

@@ -29,13 +29,9 @@ const SignUp = () => {
   };
 
   const handleSignup = () => {
-    console.log("clicked");
-
     axios
       .post("http://localhost:3001/developer/signup", formData)
       .then((response) => {
-        console.log(response);
-
         setFormData({
           email: "",
           password: "",

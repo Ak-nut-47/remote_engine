@@ -35,9 +35,6 @@ const DeveloperOnboardingForm = () => {
   const [allSkills, setAllSkills] = useState([]);
 
   useEffect(() => {
-    console.log("formState:", formState);
-    console.log("selectedSkills:", formState.selectedSkills);
-
     const fetchSkills = async () => {
       try {
         const response = await axios.get("http://localhost:3001/skills/all");
@@ -109,15 +106,20 @@ const DeveloperOnboardingForm = () => {
   };
 
   const handleSubmit = async () => {
-    let finalFormState = { ...formState, selectedSkills: selectedSkills };
-
-    console.log(finalFormState);
-
     try {
       const response = await axios.post("http://localhost:3001/onboarding", {
         ...formState,
       });
       console.log("Onboarding submitted:", response.data);
+      return toast({
+        title: "Onboarding submitted successfully",
+        description:
+          "Your onboarding information has been successfully submitted.",
+        status: "success",
+        duration: 1500, // Adjust the duration as needed
+        isClosable: true,
+        position: "top",
+      });
     } catch (error) {
       console.error("Error submitting onboarding:", error);
     }
