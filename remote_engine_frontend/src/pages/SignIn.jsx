@@ -29,7 +29,6 @@ const SignIn = () => {
   };
 
   const handleLogin = () => {
-    // Send formData to the server (you can implement this part)
     console.log("clicked");
 
     axios
@@ -37,13 +36,14 @@ const SignIn = () => {
       .then((response) => {
         console.log(response);
 
-        // Clear the input fields after successful submission
         setFormData({
           email: "",
           password: "",
         });
 
         if (response?.data.token) {
+          localStorage.setItem("token", response.data.token);
+
           toast({
             title: "Signed In",
             description: `Hello user ${response?.data?.user.email}`,
@@ -53,7 +53,6 @@ const SignIn = () => {
             position: "top",
           });
 
-          // Use useNavigate for redirection after 2 seconds
           setTimeout(() => {
             navigate("/onboarding");
           }, 2000);

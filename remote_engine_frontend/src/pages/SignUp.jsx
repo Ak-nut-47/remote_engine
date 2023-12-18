@@ -29,7 +29,6 @@ const SignUp = () => {
   };
 
   const handleSignup = () => {
-    // Send formData to the server (you can implement this part)
     console.log("clicked");
 
     axios
@@ -37,7 +36,6 @@ const SignUp = () => {
       .then((response) => {
         console.log(response);
 
-        // Clear the input fields after successful submission
         setFormData({
           email: "",
           password: "",

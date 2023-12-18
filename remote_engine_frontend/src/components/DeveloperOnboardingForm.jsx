@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import {
   Box,
   Button,
@@ -23,7 +24,7 @@ const DeveloperOnboardingForm = () => {
     firstName: "",
     lastName: "",
     phoneNumber: "",
-    email: "a",
+    email: "",
     selectedSkills: [],
     professionalExperience: [
       { companyName: "", techStack: "", selectedSkills: [], timePeriod: "" },
@@ -36,7 +37,7 @@ const DeveloperOnboardingForm = () => {
   useEffect(() => {
     console.log("formState:", formState);
     console.log("selectedSkills:", formState.selectedSkills);
-    // Fetch predefined skills from the backend
+
     const fetchSkills = async () => {
       try {
         const response = await axios.get("http://localhost:3001/skills/all");
@@ -56,7 +57,6 @@ const DeveloperOnboardingForm = () => {
         newArray[index][subfield] = value;
         return { ...prev, [field]: newArray };
       } else {
-        // Ensure selectedSkills is always an array
         const selectedSkills = Array.isArray(value) ? value : [value];
         return { ...prev, [field]: selectedSkills };
       }
@@ -66,7 +66,6 @@ const DeveloperOnboardingForm = () => {
   const handleSkillSelection = (field, experienceIndex, skill) => {
     const experience = formState[field][experienceIndex];
     if (experience.selectedSkills.includes(skill)) {
-      // Skill is already selected, show error message or handle as needed
       toast({
         title: `Skill '${skill}' is already added for this experience.`,
         status: "error",
@@ -75,7 +74,6 @@ const DeveloperOnboardingForm = () => {
         position: "top",
       });
     } else {
-      // Add the skill to the selectedSkills array for the specific experience
       setFormState((prev) => {
         const newArray = [...prev[field]];
         newArray[experienceIndex].selectedSkills = [
@@ -114,12 +112,11 @@ const DeveloperOnboardingForm = () => {
     let finalFormState = { ...formState, selectedSkills: selectedSkills };
 
     console.log(finalFormState);
-    // Uncomment the following lines when ready to submit to the backend
+
     try {
-      const response = await axios.post(
-        "http://localhost:3001/onboarding",
-        formState
-      );
+      const response = await axios.post("http://localhost:3001/onboarding", {
+        ...formState,
+      });
       console.log("Onboarding submitted:", response.data);
     } catch (error) {
       console.error("Error submitting onboarding:", error);
@@ -167,7 +164,11 @@ const DeveloperOnboardingForm = () => {
           </FormControl>
           <FormControl>
             <FormLabel>Email</FormLabel>
-            <Input type="email" value={formState.email} isReadOnly />
+            <Input
+              type="email"
+              value={formState.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+            />
           </FormControl>
           {/* ------------------------------------Skills---------- */}
 
