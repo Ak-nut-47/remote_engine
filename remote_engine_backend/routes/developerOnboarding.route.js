@@ -3,10 +3,10 @@ const DeveloperModel = require("../models/developer.model");
 
 const developerOnboardingRouter = express.Router();
 
-// Endpoint to submit developer onboarding details
+
 developerOnboardingRouter.post('/', async (req, res) => {
     try {
-        // Assuming the request body contains the onboarding details
+
         const {
             firstName,
             lastName,
@@ -17,7 +17,7 @@ developerOnboardingRouter.post('/', async (req, res) => {
             educationalExperience,
         } = req.body;
         console.log(req.body)
-        // Create and save the new developer
+
         const newDeveloper = new DeveloperModel({
             firstName,
             lastName,

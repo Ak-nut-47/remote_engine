@@ -15,12 +15,12 @@ const developerSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        // required: true,
+
         unique: true,
     },
     skills: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'skills', // Assuming you have a Skill model (similar to the previous example)
+        ref: 'skills',
     }],
     professionalExperience: [{
         companyName: String,

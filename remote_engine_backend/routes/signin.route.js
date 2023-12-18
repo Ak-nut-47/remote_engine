@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const { sign } = require("jsonwebtoken");
-const UserModel = require("../models/user.model"); // Adjust the path based on your project structure
+const UserModel = require("../models/user.model");
 
 const signInRouter = express.Router();
 
@@ -9,24 +9,24 @@ signInRouter.post("/", async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // Find the user by email
+
         const user = await UserModel.findOne({ email });
         if (!user) {
             return res.status(401).json({ message: "User Not Found" });
         }
 
-        // Compare the provided password with the hashed password in the database
+
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
             return res.status(401).json({ message: "Incorrect Password" });
         }
 
-        // Generate a token
+
         const token = sign({ userId: user._id }, process.env.JWT_SECRET, {
-            expiresIn: "1h", // Token expiration time
+            expiresIn: "1h",
         });
 
-        // Respond with the token and user information
+
         res.status(200).json({
             token,
             user: {
