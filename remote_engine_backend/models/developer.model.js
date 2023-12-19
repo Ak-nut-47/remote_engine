@@ -1,3 +1,4 @@
+// models/developer.model.js
 const mongoose = require('mongoose');
 
 const developerSchema = new mongoose.Schema({
@@ -15,17 +16,19 @@ const developerSchema = new mongoose.Schema({
     },
     email: {
         type: [String],
-
         unique: true,
     },
     skills: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'skills',
+        ref: 'Skill', // Reference to the Skill model
     }],
     professionalExperience: [{
         companyName: String,
         techStack: String,
-        selectedSkills: [String],
+        selectedSkills: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Skill', // Reference to the Skill model
+        }],
         timePeriod: String,
     }],
     educationalExperience: [{
