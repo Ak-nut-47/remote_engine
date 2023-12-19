@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Professional Developer Onboarding Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to our Professional Developer Onboarding Platform! This platform allows developers to seamlessly sign in, sign up, and complete their onboarding process with ease.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Sign In
 
-### `npm start`
+Upon visiting the homepage, users are greeted with a user-friendly login form. Key features include:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Validation**: The system validates user email existence in the database.
+- **Error Handling via Modal**: If the user email is not registered, a Chakra modal gracefully informs the user of "User Not Found."
+- **Password Validation**: If the user is found but the password doesn't match, a clear message notifies the user of "Incorrect Password."
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  ![Screenshot 2023-12-19 154603](https://github.com/Ak-nut-47/remote_engine/assets/104593018/c9b20792-e100-4baa-a3b2-d953fd95383b)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Sign Up
 
-### `npm run build`
+For new users, a signup link is provided on the signin page. Features include:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **User Registration**: Users are directed to the signup page to provide necessary details.
+- **Redirect to Sign In**: After successful signup, users are redirected to the signin page to input their details correctly.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  ![Screenshot 2023-12-19 154634](https://github.com/Ak-nut-47/remote_engine/assets/104593018/6ec9c080-bfee-4d86-ac8b-84a22b066e64)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Developer Onboarding
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Upon receiving a token from the backend, users are redirected to the Developer Onboarding page. Features include:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Input Fields**: Users can input their full name, phone number, and details of professional experience and education.
+- **Add Multiple Experiences**: Users can add multiple entries for professional experience and education.
+- **Remove Multiple Experiences**: Users can remove multiple entries for professional experience and education.
+-  **Skill Used**: Skills Used inside the professional experience will be fetched from backend and user can select multiple skills
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  ![Screenshot 2023-12-19 154620](https://github.com/Ak-nut-47/remote_engine/assets/104593018/bf664462-3d6b-4270-906d-d2ecd4e3ccd2)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Screenshot 2023-12-19 154911](https://github.com/Ak-nut-47/remote_engine/assets/104593018/198e35e5-a054-4616-8b47-f5891ea369f8)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
